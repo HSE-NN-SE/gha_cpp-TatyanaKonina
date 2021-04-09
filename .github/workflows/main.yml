@@ -45,12 +45,21 @@ jobs:
           
   telegram:
     # The type of runner that the job will run on
+      needs: build
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@master
+        - name: Download
+          uses: actions/download-artifact@v1
+          with :
+              name: my-artifact
+              path: ./
+                 
         - name: send custom message with args
           uses: appleboy/telegram-action@master
           with:
             to: ${{ secrets.TELEGRAM_TO_DEBUG }}
             token: ${{ secrets.TELEGRAM_TOKEN_DEBUG }}
-            args: The ${{ github.event_name }} event triggered first step.
+            document: ${{github.workspace}}/my-artifact
+            args: The ${{ github.event_name }}.
+            
