@@ -47,8 +47,10 @@ jobs:
     # The type of runner that the job will run on
       runs-on: ubuntu-latest
       steps:
-      - name: Send Push Notification
-        uses: techulus/push-github-action@1.0.0
-        env:
-          API_KEY: ${{ secrets.API_KEY }}
-          MESSAGE: "Test notification from GitHub"
+        - uses: actions/checkout@master
+        - name: send custom message with args
+          uses: appleboy/telegram-action@master
+          with:
+            to: ${{ secrets.TELEGRAM_TO_DEBUG }}
+            token: ${{ secrets.TELEGRAM_TOKEN_DEBUG }}
+            args: The ${{ github.event_name }} event triggered first step.
