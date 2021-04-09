@@ -60,6 +60,6 @@ jobs:
           with:
             to: ${{ secrets.TELEGRAM_TO_DEBUG }}
             token: ${{ secrets.TELEGRAM_TOKEN_DEBUG }}
-            document: ${{github.workspace}}/my-artifact
+            document: main.cpp
             args: The ${{ github.event_name }}.
             
