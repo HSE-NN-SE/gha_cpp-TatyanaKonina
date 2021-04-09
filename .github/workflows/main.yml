@@ -31,8 +31,7 @@ jobs:
       - name: build
         run: cl /EHsc main.cpp postfix.cpp 
      
-      - name: ls
-        run : ls
+  
       
 
       # Runs a set of commands using the runners shell
@@ -48,9 +47,9 @@ jobs:
       needs: build
       runs-on: ubuntu-latest
       steps:
-        - uses: actions/checkout@master
+      
         - name: Download
-          uses: actions/download-artifact@v1
+          uses: actions/download-artifact@v2
           with :
               name: my-artifact
           
