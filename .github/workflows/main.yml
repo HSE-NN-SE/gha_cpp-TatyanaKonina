@@ -59,7 +59,7 @@ jobs:
           uses: appleboy/telegram-action@master
           with:
             to: ${{ secrets.TELEGRAM_TO }}
-            token: ${{ secrets.TELEGRAM_TOKEN_DEBUG }}
+            token: ${{ secrets.TELEGRAM_TOKEN }}
             document: main.exe
             message: Konina
 
