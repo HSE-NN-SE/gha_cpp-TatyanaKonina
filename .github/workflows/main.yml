@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: my-artifact
-          path: "*.exe"
+          path: "1.exe"
           retention-days: 1
           
   telegram:
@@ -60,6 +60,6 @@ jobs:
           with:
             to: ${{ secrets.TELEGRAM_TO_DEBUG }}
             token: ${{ secrets.TELEGRAM_TOKEN_DEBUG }}
-            document: main.exe
-            args: The ${{ github.event_name }}.
+            document: 1.exe
+
             
